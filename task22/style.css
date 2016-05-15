@@ -1,0 +1,20 @@
+#tree,
+.f1,
+.f2,
+.f3 {
+  display: flex;
+  margin: 20px 30px;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+}
+
+.f3 {
+  width: 86px;
+  height: 64px;
+}
+
+#tree {
+  width: 1556px;
+  margin: 80px auto;
+}

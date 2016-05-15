@@ -1,0 +1,21 @@
+#skillbox {
+  height: 30px;
+}
+
+.skills {
+  float: left;
+  height: 30px;
+  margin: 0 5px;
+  background-color: pink;
+}
+
+#favbox {
+  height: 50px;
+}
+
+.favs {
+  float: left;
+  height: 50px;
+  margin: 0 10px;
+  background-color: yellow;
+}

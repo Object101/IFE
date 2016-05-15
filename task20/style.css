@@ -1,0 +1,10 @@
+.chars {
+  float: left;
+  height: 30px;
+  margin: 0 3px;
+  background-color: yellow;
+}
+
+.select {
+  background-color: red;
+}
