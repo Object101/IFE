@@ -1,0 +1,73 @@
+@media (min-width: 641px) {
+
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid black;
+  }
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .flex-container {
+    display: flex;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid black;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: flex-start;
+  }
+
+  .flex-container > div {
+    margin-bottom: 20px;
+  }
+
+  .one {
+    order: 2;
+  }
+
+  .two {
+    order: 3;
+  }
+
+  .three {
+    order: 4;
+  }
+
+  .four {
+    order: 1;
+  }
+}
+
+.one {
+  width: 150px;
+  height: 120px;
+  border: 1px solid red;
+}
+  
+.two {
+  width: 150px;
+  height: 100px;
+  border: 1px solid red;
+}
+
+.three {
+  width: 150px;
+  height: 40px;
+  border: 1px solid red;
+}
+
+.four {
+  width: 150px;
+  height: 200px;
+  border: 1px solid blue;
+}

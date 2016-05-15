@@ -1,0 +1,31 @@
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  background-color: white;
+  border: 1px solid black;
+}
+
+.numbers {
+  display: inline-block;
+  position: relative;
+  top: 60px;
+  width: 10px;
+  margin: 0 1px;
+  background-color: red;
+}
+
+form {
+  width: 600px;
+  margin: 30px auto;
+}
+
+#box {
+  width: 720px;
+  height: 200px;
+  padding: 0;
+  margin: 60px auto;
+}
