@@ -1,0 +1,9 @@
+.tree {
+  display: flex;
+  margin: 20px 10px;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
