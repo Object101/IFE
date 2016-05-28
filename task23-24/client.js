@@ -57,6 +57,7 @@ function match(queue, value) {
 }
 
 var matchElement;//上次找到的元素
+var selectedElement;//被选择的元素
 
 window.onload = function() {
   var tree = document.querySelector('#root'),
@@ -64,7 +65,10 @@ window.onload = function() {
       bft = document.querySelector('#bft'),
       search = document.querySelector('#search'),
       dfs = document.querySelector('#dfs'),
-      bfs = document.querySelector('#bfs');
+      bfs = document.querySelector('#bfs'),
+      del = document.querySelector('#del'),
+      content = document.querySelector('#content'),
+      add = document.querySelector('#add');
   dft.onclick = function() {
     if (matchElement) {
       matchElement.style.backgroundColor = 'white';//将上次找到的元素恢复背景颜色
@@ -101,6 +105,35 @@ window.onload = function() {
         value = search.value;
     breadthFirstPath(tree, queue);
     matchElement = match(queue, value);
+    return false;
+  }
+  tree.onclick = function(e) {
+    var target = e.target;
+    if (selectedElement) {
+      selectedElement.style.backgroundColor = 'white';
+    }
+    if (target.nodeName.toLowerCase() === 'div') {
+      target.style.backgroundColor = 'yellow';
+      selectedElement = target;
+    } else {
+      target.parentNode.style.backgroundColor = 'yellow';
+      selectedElement = target.parentNode;
+    }
+    return false;
+  }
+  del.onclick = function() {
+    if (selectedElement.id === 'root') {return false;}
+    selectedElement.parentNode.removeChild(selectedElement);
+  }
+  add.onclick = function() {
+    var value = content.value.trim(),
+        div = document.createElement('div'),
+        p = document.createElement('p');
+    if (value === '' || !selectedElement) {return false;}
+    p.innerHTML = value;
+    div.appendChild(p);
+    div.className = 'tree';
+    selectedElement.appendChild(div);
     return false;
   }
 }

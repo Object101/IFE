@@ -1,6 +1,4 @@
-.tree,
-.branch,
-.leaf {
+.tree {
   display: flex;
   margin: 20px 10px;
   border: 1px solid black;
@@ -9,7 +7,3 @@
   background-color: #fff;
 }
 
-.leaf {
-  width: 60px;
-  height: 64px;
-}
