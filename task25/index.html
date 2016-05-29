@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>task25</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="client.js"></script>
+</head>
+<body>
+  <div id="main">
+    <input type="text" id="searchContent">
+    <button id="search">搜索</button>
+    <ul id="root">
+      <li>
+        <div class="right-arrow"></div>
+        <p>计算机书目</p>
+        <ul class="hidden">
+          <li>
+            <div class="right-arrow"></div>
+            <p>办公类</p>
+            <ul class="hidden">
+              <li><p>Windows应用</p></li>
+              <li><p>Office快速入门</p></li>
+            </ul>
+          </li>
+          <li>
+            <div class="right-arrow"></div>
+            <p>编程类</p>
+            <ul class="hidden">
+              <li><p>C语言程序设计</p></li>
+              <li><p>Java从入门到精通</p></li>
+              <li><p>Asp.Net入门经典</p></li>
+            </ul>
+          </li>
+          <li>
+            <div class="right-arrow"></div>
+            <p>网络类</p>
+            <ul class="hidden">
+              <li><p>网络基础</p></li>
+              <li><p>TCP/IP协议</p></li>
+            </ul>
+          </li>
+          <li>
+            <div class="right-arrow"></div>
+            <p>动画类</p>
+            <ul class="hidden">
+              <li><p>PhotoShop创意设计</p></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <ul id="context" class="context hidden">
+    <li id="add">添加</li>
+    <li id="del">删除</li>
+  </ul>
+</body>
+</html>
