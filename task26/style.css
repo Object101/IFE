@@ -1,0 +1,147 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: black;
+}
+
+#orbit4 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 600px;
+  margin: 100px auto 0;
+  border: 2px solid silver;
+  border-radius: 300px;
+}
+
+#orbit3 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 480px;
+  height: 480px;
+  border: 2px solid silver;
+  border-radius: 240px;
+}
+
+#orbit2 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 360px;
+  height: 360px;
+  border: 2px solid silver;
+  border-radius: 180px;
+}
+
+#orbit1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 240px;
+  border: 2px solid silver;
+  border-radius: 120px;
+}
+
+#planet {
+  width: 120px;
+  height: 120px;
+  border: 1px solid transparent;
+  border-radius: 60px;
+  background-color: #1e90ff;
+}
+
+#main {
+  width: 800px;
+  height: 200px;
+  margin: 30px auto 0;
+  background-color: white;
+}
+
+#controlPanel {
+  float: left;
+  display: flex;
+  justify-content: space-around;
+  width: 400px;
+}
+
+#ship1,
+#ship2,
+#ship3,
+#ship4 {
+  width: 60px;
+  height: 40px;
+  margin-top: 10px;
+}
+
+#controlPanel button {
+  width: 60px;
+  margin-top: 20px;
+}
+
+.craft1,
+.craft2,
+.craft3,
+.craft4 {
+  width: 34px;
+  height: 50px;
+  background-color: Gold;
+  text-align: center;
+}
+
+.craft4 {
+  position: absolute;
+  top: 275px;
+  left: 587px;
+}
+
+.craft4.fly {
+
+}
+
+.craft3 {
+  position: absolute;
+  top: 215px;
+  left: 467px;
+}
+
+.craft2 {
+  position: absolute;
+  top: 155px;
+  left: 347px;
+}
+
+.craft1 {
+  position: absolute;
+  top: 95px;
+  left: 228px;
+}
+
+.fly {
+  transition: transform 0.1s;
+}
+
+.craft4 {
+  transform-origin: -832% 50%;
+}
+
+.craft3 {
+  transform-origin: -656% 50%;
+}
+
+.craft2 {
+  transform-origin: -479% 50%;
+}
+
+.craft1 {
+  transform-origin: -303% 50%;
+}
