@@ -69,6 +69,7 @@ EnergySystem.prototype = {
 function SignalReceiveSystem(SpaceCraft) {
   this.SpaceCraft = SpaceCraft;
   this.check();
+  this.preCommond = null;
 }
 
 SignalReceiveSystem.prototype = {
@@ -77,18 +78,22 @@ SignalReceiveSystem.prototype = {
     if (this.SpaceCraft) {
       if (mediator.hasInfo) {
         if (mediator.info.id === this.SpaceCraft.id) {
-          console.log('receive');
-          switch (mediator.info.commond) {
-            case 'fly' :
-              if (this.SpaceCraft.isFlying === false) {
-                this.SpaceCraft.DynamicSystem.start();
-              }
-              break;
-            case 'stop' :
-              this.SpaceCraft.DynamicSystem.stop();
-              break;
-            case 'expose' :
+          var commond = mediator.info.commond;
+          if (commond !== this.preCommond) {
+            logDisplay('飞天' + this.SpaceCraft.id +'号接到命令');
+            this.preCommond = commond;
+            switch (commond) {
+              case 'fly' :
+                if (this.SpaceCraft.isFlying === false) {
+                  this.SpaceCraft.DynamicSystem.start();
+                }
+                break;
+              case 'stop' :
+                this.SpaceCraft.DynamicSystem.stop();
+                break;
+              case 'expose' :
               this.SpaceCraft.ExposeSystem.expose();
+            }
           }
         }
       }
@@ -145,8 +150,11 @@ function Planet() {
   this.hasCraft = [];
   this.create = function(id) {
     if (!this.hasCraft[id]) {
+      logDisplay('飞天' + id + '号已就绪');
       new SpaceCraft(id);
       this.hasCraft[id] = true;
+    } else {
+      logDisplay('飞天' + id + '号已存在');
     }
     
   };
@@ -181,12 +189,18 @@ function Mediator() {
   this.arrive = function() {
     var loss = Math.random();
     if (loss >= 0.3) {
+      clearTimeout(this.keeper);
       this.hasInfo = true;
       this.info = this.infoQue.shift();
-      console.log('suc');
+      var that = this;
+      this.keeper = setTimeout(function() {
+        that.info = null;
+        that.hasInfo = false;
+      }, 1000)
+      logDisplay('指令发送成功');
     } else {
       this.infoQue.shift();
-      console.log('fail');
+      logDisplay('指令丢失');
     }
   }
   this.send = function(info) {
@@ -199,8 +213,18 @@ function Mediator() {
   }
 }
 
+function logDisplay(info) {
+  var p = document.createElement('p');
+  p.innerHTML = info;
+  if (consoleInfo.children.length > 10) {
+    consoleInfo.removeChild(consoleInfo.firstChild);
+  }
+  consoleInfo.appendChild(p);
+}
+
 var planet = new Planet();
 var mediator = new Mediator();
+var consoleInfo = document.querySelector('#consoleInfo');
 
 window.onload = function() {
   var controlPanel = document.querySelector('#controlPanel');
