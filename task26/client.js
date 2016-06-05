@@ -32,10 +32,10 @@ DynamicSystem.prototype = {
   },
   speed : function() {
     switch (this.SpaceCraft.id) {
-      case 1 : return 0.96*5;
-      case 2 : return 0.64*5;
-      case 3 : return 0.48*5;
-      case 4 : return 0.38*5;
+      case 1 : return 4.8;
+      case 2 : return 3.2;
+      case 3 : return 2.4;
+      case 4 : return 1.9;
     }
   }
 }
