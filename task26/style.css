@@ -145,3 +145,13 @@ body {
 .craft1 {
   transform-origin: -303% 50%;
 }
+
+#consoleInfo {
+  float: left;
+  width: 400px;
+  height: 200px;
+}
+
+#consoleInfo p {
+  text-align: center;
+}
