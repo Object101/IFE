@@ -36,6 +36,7 @@ function BasicDynamicSystem(SpaceCraft) {
   DynamicSystem.call(this, SpaceCraft);
   this.rotateSpeed = this.speed();
   this.cost = 0.5;
+  this.type = 'basic';
 }
 
 BasicDynamicSystem.prototype = DynamicSystem.prototype;
@@ -53,6 +54,7 @@ function ProfessionalDynamicSystem(SpaceCraft) {
   DynamicSystem.call(this, SpaceCraft);
   this.rotateSpeed = this.speed();
   this.cost = 0.7;
+  this.type = 'professional';
 }
 
 ProfessionalDynamicSystem.prototype = DynamicSystem.prototype;
@@ -70,6 +72,7 @@ function UltimateDynamicSystem(SpaceCraft) {
   DynamicSystem.call(this, SpaceCraft);
   this.rotateSpeed = this.speed();
   this.cost = 0.9;
+  this.type = 'ultimate';
 }
 
 UltimateDynamicSystem.prototype = DynamicSystem.prototype;
@@ -113,6 +116,7 @@ function BasicEnergySystem(SpaceCraft) {
   EnergySystem.call(this, SpaceCraft);
   this.inputCell = 0.2;
   this.inputCeil = 99.8;
+  this.type = 'basic';
 }
 
 BasicEnergySystem.prototype = EnergySystem.prototype;
@@ -122,6 +126,7 @@ function ProfessionalEnergySystem(SpaceCraft) {
   EnergySystem.call(this, SpaceCraft);
   this.inputCell = 0.3;
   this.inputCeil = 99.7;
+  this.type = 'professional';
 }
 
 ProfessionalEnergySystem.prototype = EnergySystem.prototype;
@@ -131,6 +136,7 @@ function UltimateEnergySystem(SpaceCraft) {
   EnergySystem.call(this, SpaceCraft);
   this.inputCell = 0.4;
   this.inputCeil = 99.6;
+  this.type = 'ultimate';
 }
 
 UltimateEnergySystem.prototype = EnergySystem.prototype;
@@ -139,8 +145,9 @@ UltimateEnergySystem.prototype.constructor = UltimateEnergySystem;
 function SignalReceiveSystem(SpaceCraft) {
   this.SpaceCraft = SpaceCraft;
   this.Adapter = new Adapter();
-  this.check();
   this.preCommond = null;
+  this.check();
+  this.broadcast();
 }
 
 SignalReceiveSystem.prototype = {
@@ -164,7 +171,8 @@ SignalReceiveSystem.prototype = {
                 this.SpaceCraft.DynamicSystem.stop();
                 break;
               case 'expose' :
-              this.SpaceCraft.ExposeSystem.expose();
+                this.SpaceCraft.ExposeSystem.expose();
+                break;
             }
           }
         }
@@ -174,6 +182,19 @@ SignalReceiveSystem.prototype = {
   },
   stop : function() {
     clearTimeout(this.keeper);
+    clearTimeout(this.reKeeper);
+  },
+  broadcast : function() {
+    var info = {
+      id: this.SpaceCraft.id,
+      dynamic: this.SpaceCraft.DynamicSystem.type,
+      energy: this.SpaceCraft.EnergySystem.type,
+      isFlying: this.SpaceCraft.isFlying,
+      remainEnergy: this.SpaceCraft.EnergySystem.value
+    }
+    var data = this.Adapter.reEncode(info);
+    bus.response(data);
+    this.reKeeper = setTimeout(this.broadcast.bind(this), 1000);
   }
 }
 
@@ -239,6 +260,7 @@ SpaceCraft.prototype.createDom = function(id) {
 function Planet() {
   this.hasCraft = [];
   this.Adapter = new Adapter();
+  this.preFeedback = null;
   this.create = function(id, dynamic, energy) {
     if (!this.hasCraft[id]) {
       logDisplay('飞天' + id + '号已就绪');
@@ -274,12 +296,37 @@ function Planet() {
     var data = this.Adapter.encode(info);
     bus.send(data);
   };
+  this.check = function() {
+    if (bus.hasFeedback) {
+      var feedback = bus.feedback;
+      if (feedback !== this.preFeedback) {
+        this.preFeedback = feedback;
+        var info = this.Adapter.reDecode(feedback),
+            screen = god.children[info.id],
+            flyStatus;
+        if (info.isFlying) {
+          flyStatus = '飞行中';
+        } else {
+          flyStatus = '停止';
+        }
+        screen.children[1].innerHTML = info.dynamic;
+        screen.children[2].innerHTML = info.energy;
+        screen.children[3].innerHTML = flyStatus;
+        screen.children[4].innerHTML = info.remainEnergy + '%';
+      }
+    }
+    setTimeout(this.check.bind(this), 50);
+  };
+  this.check();
 }
 
 function BUS() {
   this.hasInfo = false;
+  this.hasFeedback = false;
   this.info = null;
+  this.feedback = null;
   this.infoQue = [];
+  this.feedQue = [];
   this.arrive = function() {
     var loss = Math.random();
     if (loss >= 0.1) {
@@ -296,10 +343,24 @@ function BUS() {
       logDisplay('指令发送失败。。。准备再次发送');
       setTimeout(this.arrive.bind(this), 300);
     }
-  }
+  };
+  this.receive = function() {
+    var loss = Math.random();
+    if (loss >= 0.1) {
+      clearTimeout(this.feedKeeper);
+      this.hasFeedback = true;
+      this.feedback = this.feedQue.shift();
+    } else {
+      setTimeout(this.receive.bind(this), 300);
+    }
+  };
   this.send = function(info) {
     this.infoQue.push(info);
     setTimeout(this.arrive.bind(this), 300);
+  };
+  this.response = function(info) {
+    this.feedQue.push(info);
+    setTimeout(this.receive.bind(this), 300);
   };
 }
 
@@ -368,6 +429,112 @@ Adapter.prototype.decode = function(data) {
   };
 }
 
+Adapter.prototype.reEncode = function(info) {
+  var id, dynamic, energy, isFlying, remainEnergy;
+  switch (info.id) {
+    case 1:
+      id = '00';
+      break;
+    case 2:
+      id = '01';
+      break;
+    case 3 :
+      id = '10';
+      break;
+    case 4 :
+      id = '11';
+      break;
+  }
+  switch (info.dynamic) {
+    case 'basic':
+      dynamic = '00';
+      break;
+    case 'professional':
+      dynamic = '01';
+      break;
+    case 'ultimate':
+      dynamic = '10';
+      break;
+  }
+  switch (info.energy) {
+    case 'basic':
+      energy = '00';
+      break;
+    case 'professional':
+      energy = '01';
+      break;
+    case 'ultimate':
+      energy = '10';
+      break;
+  }
+  switch (info.isFlying) {
+    case true:
+      isFlying = '1';
+      break;
+    case false:
+      isFlying = '0';
+      break;
+  }
+  remainEnergy = info.remainEnergy.toString(2);
+  return id + dynamic + energy + isFlying + remainEnergy;
+}
+
+Adapter.prototype.reDecode = function(data) {
+  var id, dynamic, energy, isFlying, remainEnergy;
+  switch (data.slice(0,2)) {
+    case '00' :
+      id = 1;
+      break;
+    case '01' :
+      id = 2;
+      break;
+    case '10' :
+      id = 3;
+      break;
+    case '11' :
+      id = 4;
+      break;
+  }
+  switch (data.slice(2,4)) {
+    case '00':
+      dynamic = '前进号';
+      break;
+    case '01':
+      dynamic = '奔腾号';
+      break;
+    case '10':
+      dynamic = '超越号';
+      break;
+  }
+  switch (data.slice(4,6)) {
+    case '00':
+      energy = '劲量型';
+      break;
+    case '01':
+      energy = '光能型';
+      break;
+    case '10':
+      energy = '永久型';
+      break;
+  }
+  switch (data.slice(6,7)) {
+    case '0':
+      isFlying = false;
+      break;
+    case '1':
+      isFlying = true;
+      break;
+  }
+  remainEnergy = parseInt(data.slice(7), 2);
+  return {
+    id: id,
+    dynamic: dynamic,
+    energy: energy,
+    isFlying: isFlying,
+    remainEnergy: remainEnergy
+  }
+}
+
 function logDisplay(info) {
   var p = document.createElement('p');
   p.innerHTML = info;
@@ -377,11 +544,12 @@ function logDisplay(info) {
   consoleInfo.appendChild(p);
 }
 
-var planet = new Planet();
 var bus = new BUS();
+var planet = new Planet();
 var consoleInfo = document.querySelector('#consoleInfo');
 var dynamicSelect = document.querySelector('#dynamic');
 var energySelect = document.querySelector('#energy');
+var god = document.querySelector('#GOD');
 
 window.onload = function() {
   var controlPanel = document.querySelector('#controlPanel');
