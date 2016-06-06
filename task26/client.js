@@ -207,10 +207,6 @@ function Mediator() {
     this.infoQue.push(info);
     setTimeout(this.arrive.bind(this), 1000)
   };
-  this.close = function() {
-    this.hasInfo = false;
-    this.info = null;
-  }
 }
 
 function logDisplay(info) {
