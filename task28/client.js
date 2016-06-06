@@ -183,6 +183,16 @@ SignalReceiveSystem.prototype = {
   stop : function() {
     clearTimeout(this.keeper);
     clearTimeout(this.reKeeper);
+    var info = {
+      id: this.SpaceCraft.id,
+      dynamic: 'expose',
+      energy: 'expose',
+      isFlying: 'expose',
+      remainEnergy: 'expose'
+    }
+    var data = this.Adapter.reEncode(info);
+    bus.response(data);
+
   },
   broadcast : function() {
     var info = {
@@ -206,17 +216,22 @@ ExposeSystem.prototype = {
   constructor : ExposeSystem,
   expose : function() {
     var show = this.SpaceCraft.show;
-    show.parentNode.removeChild(show); //移除飞船的dom
+
+    show.parentNode.removeChild(show); 
+    //移除飞船的dom
     if (this.SpaceCraft.isFlying === true) {
-      this.SpaceCraft.DynamicSystem.stop();//停止动力系统，下同
+      this.SpaceCraft.DynamicSystem.stop();
+      //停止动力系统，下同
     }
     this.SpaceCraft.EnergySystem.stop();
     this.SpaceCraft.SignalReceiveSystem.stop();
-    this.SpaceCraft.show = null; //解除飞船和系统间的互相引用，回收内存，下同
+    this.SpaceCraft.show = null; 
+    //解除飞船和系统间的互相引用，回收内存，下同
     this.SpaceCraft.DynamicSystem.SpaceCraft = null;
     this.SpaceCraft.EnergySystem.SpaceCraft = null;
     this.SpaceCraft.SignalReceiveSystem.SpaceCraft = null;
     this.SpaceCraft = null;
+
   }
 }
 
@@ -304,15 +319,22 @@ function Planet() {
         var info = this.Adapter.reDecode(feedback),
             screen = god.children[info.id],
             flyStatus;
-        if (info.isFlying) {
+        if (info.dynamic !== 'expose') {
+          if (info.isFlying) {
           flyStatus = '飞行中';
-        } else {
+          } else {
           flyStatus = '停止';
+          }
+          screen.children[1].innerHTML = info.dynamic;
+          screen.children[2].innerHTML = info.energy;
+          screen.children[3].innerHTML = flyStatus;
+          screen.children[4].innerHTML = info.remainEnergy + '%';
+        } else {
+          screen.children[1].innerHTML = '';
+          screen.children[2].innerHTML = '';
+          screen.children[3].innerHTML = '';
+          screen.children[4].innerHTML = '';
         }
-        screen.children[1].innerHTML = info.dynamic;
-        screen.children[2].innerHTML = info.energy;
-        screen.children[3].innerHTML = flyStatus;
-        screen.children[4].innerHTML = info.remainEnergy + '%';
       }
     }
     setTimeout(this.check.bind(this), 50);
@@ -455,6 +477,9 @@ Adapter.prototype.reEncode = function(info) {
     case 'ultimate':
       dynamic = '10';
       break;
+    case 'expose':
+      dynamic = '11';
+      break;
   }
   switch (info.energy) {
     case 'basic':
@@ -466,16 +491,23 @@ Adapter.prototype.reEncode = function(info) {
     case 'ultimate':
       energy = '10';
       break;
+    case 'expose':
+      energy = '11';
+      break;
   }
   switch (info.isFlying) {
     case true:
       isFlying = '1';
       break;
+    case 'expose':
     case false:
       isFlying = '0';
       break;
   }
   remainEnergy = info.remainEnergy.toString(2);
+  if (info.remainEnergy === 'expose') {
+    remainEnergy ='1111';
+  }
   return id + dynamic + energy + isFlying + remainEnergy;
 }
 
@@ -505,6 +537,9 @@ Adapter.prototype.reDecode = function(data) {
     case '10':
       dynamic = '超越号';
       break;
+    case '11':
+      dynamic = 'expose';
+      break;
   }
   switch (data.slice(4,6)) {
     case '00':
@@ -515,6 +550,9 @@ Adapter.prototype.reDecode = function(data) {
       break;
     case '10':
       energy = '永久型';
+      break;
+    case '11':
+      energy = 'expose';
       break;
   }
   switch (data.slice(6,7)) {
