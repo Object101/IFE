@@ -1,0 +1,67 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+form {
+  margin: 60px auto;
+  width: 640px;
+}
+
+label {
+  display: inline-block;
+  font-weight: bold;
+  width: 80px;
+  text-align: right;
+}
+
+input {
+  display: inline-block;
+  width: 530px;
+  height: 40px;
+  margin: 0 0 40px 10px;
+  border: 1px solid #999;
+  border-radius: 5px;
+}
+
+#submit {
+  float: right;
+  width: 80px;
+  height: 40px;
+  margin-right: 10px;
+  background-color: skyblue;
+  color: white;
+  font-weight: bold;
+}
+
+p {
+  display: none;
+  height: 20px;
+  font-size: 14px;
+  color: #999;
+  margin: 5px 0 15px 100px;
+}
+
+.focus {
+  margin-bottom: 0;
+}
+
+.focus+p {
+  display: block;
+}
+
+.right {
+  border-color: green;
+}
+
+.right+p {
+  color: green;
+}
+
+.error {
+  border-color: red;
+}
+
+.error+P {
+  color: red;
+}
