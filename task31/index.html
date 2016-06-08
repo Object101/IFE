@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>task30</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <input type="radio" name="school" value="in" id="inschool">
+  <label for="inschool">在校生</label>
+  <div id="student" class="field">
+    <span>学校</span>
+    <select name="city" id="city">
+      <option value="北京">北京</option>
+      <option value="上海">上海</option>
+      <option value="杭州">杭州</option>
+    </select>
+    <select name="school" id="school">
+      <option value="北京大学">北京大学</option>
+      <option value="清华大学">清华大学</option>
+      <option value="北京航空航天大学">北京航空航天大学</option>
+    </select>
+  </div>
+  <input type="radio" name="school" value="out" id="outschool">
+  <label for="outschool">非在校生</label>
+  <div id="social" class="field">
+    <span>就业单位</span>
+    <input type="text">
+  </div>
+  <script src="client.js"></script>
+</body>
+</html>
