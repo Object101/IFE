@@ -9,7 +9,7 @@ insertion.onclick = function() {
   splitpattern = /[\s\n,\\、。，\t]/g;
   var values = value.split(splitpattern),  
       fragment = document.createDocumentFragment();
-  for (var i=0, length=values.length;; i<length; i++) {
+  for (var i=0, length=values.length; i<length; i++) {
     var char = document.createElement('p');
     char.className = 'chars';
     char.innerHTML = values[i];
