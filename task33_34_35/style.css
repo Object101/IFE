@@ -1,0 +1,96 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+td {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}
+
+#rowfigure {
+  margin-left: 50px;
+  border-collapse: collapse;
+  border: 1px solid white;
+}
+
+#rowfigure td {
+  border: 1px solid white;
+}
+
+#colfigure {
+  float: left;
+  border-collapse: collapse;
+  border: 1px solid white;
+}
+
+#colfigure td {
+  border: 1px solid white;
+}
+
+#chess {
+  float: left;
+  border-collapse: collapse;
+  border: 1px solid black;
+  outline: black solid 2px;
+}
+
+#chess td {
+  border: 1px solid #999;
+}
+
+#block {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 40px;
+  border-top: 10px solid blue;
+  background-color: red;
+  transform-origin: 50% 50%;
+  transition: transform 1s, top 1s, left 1s;
+}
+
+#commond {
+  float: left;
+  padding-left: 50px;
+}
+
+#wrap {
+  float: left;
+  width: 25px;
+  height: 420px;
+  padding-top: 1px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #999;
+  font-size: 24px;
+  line-height: 28px;
+  overflow: hidden;
+}
+
+#detail {
+  float: left;
+  padding-bottom: 1px;
+  border: none;
+  background-color: #000;
+  font-size: 24px;
+  line-height: 28px;
+  color: green;
+}
+
+button {
+  clear: left;
+  display: block;
+}
+
+ul {
+  position: relative;
+  list-style: none;
+}
+
+.error {
+  border-radius: 12px;
+  background-color: red;
+}

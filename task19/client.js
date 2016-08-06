@@ -81,7 +81,7 @@ function bubbleSort(doms) {
   timer = setInterval(function() {
     if (i === length - 2) {
       clearInterval(timer);
-      alert('complish');
+      alert('Done');
       return;
     }
     if (j === i) {

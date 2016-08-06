@@ -1,0 +1,51 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#fl {
+  display: block;
+  width: 100px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+#mask {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(153, 153, 153, 0.4);
+}
+
+#layer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -150px 0 0 -250px;
+  width: 500px;
+  height: 300px;
+  background-color: #fff;
+  border: 1px solid black;
+}
+
+#layer h3 {
+  background-color: #666;
+  cursor: default;
+  border-bottom: 1px solid black;
+}
+
+#control {
+  position: absolute;
+  top: 270px;
+  left: 380px;
+}
+
+#control button {
+  width: 50px;
+  height: 25px;
+}
+
+.hidden {
+  display: none;
+}
