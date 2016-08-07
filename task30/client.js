@@ -3,7 +3,7 @@ function getLength(str) {
       length = str.length;
   for (var i = 0; i < length; i++) {
     var charCode = str.charCodeAt(i);
-    if (charCode >= 0 && charCode <= 128) {
+    if (charCode >= 0 && charCode <= 255) {
       realLength += 1;
     } else {
       realLength += 2;

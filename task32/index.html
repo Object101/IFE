@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>task32</title>
+</head>
+<body>
+  <div id="useroption">
+    <textarea name="userinput" id="userinput" cols="40" rows="15">
+      {
+        "label": "名称",
+        "type": "input",
+        "validator": "isNotEmpty",
+        "rules": "必填， 长度为4-16个字符",
+        "success": "格式正确",
+        "fail": "名称不能为空"
+      }
+    </textarea>
+    <button id="add">添加</button>
+    <div id="content"></div>
+  </div>
+  <script src="client.js"></script>
+</body>
+</html>

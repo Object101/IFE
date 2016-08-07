@@ -1,0 +1,42 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 2160px;
+}
+
+table {
+  margin: 50px auto 0;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+th {
+  cursor: default;
+  color: white;
+  border-color: white;
+  background-color: black;
+}
+
+.sort {
+  color: black;
+  background-color: yellow;
+}
+
+.frozen {
+  position: fixed;
+  top: 0;
+}
+
+.fill {
+  height: 51px;
+}

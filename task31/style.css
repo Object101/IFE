@@ -1,0 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.field {
+  position: absolute;
+  display: none;
+}
+
+input[type='radio']:checked+label+div {
+  display: block;
+}

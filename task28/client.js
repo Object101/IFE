@@ -6,7 +6,7 @@ function DynamicSystem(SpaceCraft) {
 DynamicSystem.prototype = {
   constructor : DynamicSystem,
   start : function() {
-    var energy = this.SpaceCraft.EnergySystem.value
+    var energy = this.SpaceCraft.EnergySystem.value,
         cost = this.cost;
     if (energy >= cost)  {
       this.SpaceCraft.EnergySystem.output(cost);
@@ -39,8 +39,7 @@ function BasicDynamicSystem(SpaceCraft) {
   this.type = 'basic';
 }
 
-BasicDynamicSystem.prototype = DynamicSystem.prototype;
-BasicDynamicSystem.prototype.constructor = BasicDynamicSystem;
+BasicDynamicSystem.prototype.__proto__ = DynamicSystem.prototype;
 BasicDynamicSystem.prototype.speed = function() {
   switch (this.SpaceCraft.id) {
       case 1 : return 2.9;
@@ -57,8 +56,7 @@ function ProfessionalDynamicSystem(SpaceCraft) {
   this.type = 'professional';
 }
 
-ProfessionalDynamicSystem.prototype = DynamicSystem.prototype;
-ProfessionalDynamicSystem.prototype.constructor = ProfessionalDynamicSystem;
+ProfessionalDynamicSystem.prototype.__proto__ = DynamicSystem.prototype;
 ProfessionalDynamicSystem.prototype.speed = function() {
   switch (this.SpaceCraft.id) {
       case 1 : return 4.8;
@@ -75,8 +73,7 @@ function UltimateDynamicSystem(SpaceCraft) {
   this.type = 'ultimate';
 }
 
-UltimateDynamicSystem.prototype = DynamicSystem.prototype;
-UltimateDynamicSystem.prototype.constructor = UltimateDynamicSystem;
+UltimateDynamicSystem.prototype.__proto__ = DynamicSystem.prototype;
 UltimateDynamicSystem.prototype.speed = function() {
   switch (this.SpaceCraft.id) {
       case 1 : return 6.7;
@@ -119,8 +116,7 @@ function BasicEnergySystem(SpaceCraft) {
   this.type = 'basic';
 }
 
-BasicEnergySystem.prototype = EnergySystem.prototype;
-BasicEnergySystem.prototype.constructor = BasicEnergySystem;
+BasicEnergySystem.prototype.__proto__ = EnergySystem.prototype;
 
 function ProfessionalEnergySystem(SpaceCraft) {
   EnergySystem.call(this, SpaceCraft);
@@ -129,8 +125,7 @@ function ProfessionalEnergySystem(SpaceCraft) {
   this.type = 'professional';
 }
 
-ProfessionalEnergySystem.prototype = EnergySystem.prototype;
-ProfessionalEnergySystem.prototype.constructor = ProfessionalEnergySystem;
+ProfessionalEnergySystem.prototype.__proto__  = EnergySystem.prototype;
 
 function UltimateEnergySystem(SpaceCraft) {
   EnergySystem.call(this, SpaceCraft);
@@ -139,8 +134,7 @@ function UltimateEnergySystem(SpaceCraft) {
   this.type = 'ultimate';
 }
 
-UltimateEnergySystem.prototype = EnergySystem.prototype;
-UltimateEnergySystem.prototype.constructor = UltimateEnergySystem;
+UltimateEnergySystem.prototype.__proto__  = EnergySystem.prototype;
 
 function SignalReceiveSystem(SpaceCraft) {
   this.SpaceCraft = SpaceCraft;
