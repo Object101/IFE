@@ -10,20 +10,24 @@ class Waterfall {
     this.interval = parseInt(matchs[2], 10) / 2;
     this.init();
   }
+  //初始化函数
   init() {
     let box = this.box;
-    let imgs = [...box.children];
+    let imgs = [...box.children];//将nodelist转换成数组，方便遍历
     let frag= document.createDocumentFragment();
+    //将原有图片暂存起来
     for (let img of imgs) {
       frag.appendChild(img);
     }
     let col = this.col;
+    //为容器添加数量为col的列
     for (let i = 0; i < col; i++) {
       let div = document.createElement('div');
       div.style.width = 1/col * 100 + '%';
       box.appendChild(div);
     }
     box.style.padding = this.interval + 'px';
+    //为容器绑定点击事件函数
     box.addEventListener('click', function(e) {
       if (!this.display) {
         let display = document.createElement('div');
@@ -40,8 +44,10 @@ class Waterfall {
       this.display.children[0].src = e.target.src;
       document.body.appendChild(this.display);
     });
+    //调用add函数将图片数组添加到容器中
     this.add([...frag.children]);
     let _this = this;
+    //绑定滚动事件，自动加载图片
     window.addEventListener('scroll', function() {
       let body = document.body;
       if (body.scrollHeight === body.scrollTop + this.innerHeight) {
@@ -72,7 +78,7 @@ class Waterfall {
       minDiv.appendChild(img);
     }
   }
-  //滚动到地步时添加图片函数
+  //滚动到底部时自动添加图片的函数
   addImgOnScrollEnd() {
     //一次添加4张图片
     for (let i = 0; i < 4; i++) {
@@ -80,7 +86,7 @@ class Waterfall {
       let _this = this;
       img.onload = function() {
         this.onload = null;
-        _this.add([this]);
+        _this.add([this]);//图片载入完成后加入到dom树中去
       };
       let height = Math.round(Math.random() * 300 + 300);
       img.src = 'http://placekitten.com/400/' + height;
