@@ -1,4 +1,5 @@
 !function () {
+  'use strict';
   class Barrel {
     constructor() {
       let box = document.querySelector('[class*=barrel]');
