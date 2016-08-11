@@ -20,7 +20,7 @@
   }
   window.addEventListener('DOMContentLoaded', function () {
     let albums = document.getElementsByClassName('album');
-    for (album of albums) {
+    for (let album of albums) {
       toAlbum(album);
     }
   });
