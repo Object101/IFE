@@ -12,7 +12,6 @@
     init() {
       let box = this.box;
       let padding = this.padding;
-      box.style.padding = padding + 'px';
       let imgs = [...box.children];
       for (let img of imgs) {
         box.removeChild(img);

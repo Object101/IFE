@@ -8,6 +8,7 @@
       let matchs = box.className.match(/waterfall-([0-9]+)-([0-9]+)/);
       this.col = parseInt(matchs[1], 10);
       this.interval = parseInt(matchs[2], 10) / 2;
+      this.enLoad = true;
       this.init();
     }
     //初始化函数
@@ -49,7 +50,7 @@
       //绑定滚动事件，自动加载图片
       window.addEventListener('scroll', function() {
         let body = document.body;
-        if (body.scrollHeight === body.scrollTop + this.innerHeight) {
+        if ((body.scrollHeight - 50 <= body.scrollTop + this.innerHeight) && _this.enLoad) {
           _this.addImgOnScrollEnd();
         }
       });
@@ -57,6 +58,9 @@
     add(imgs) {
       let box = this.box;
       let interval = this.interval;
+      if (!(imgs instanceof Array)) {
+        imgs = [imgs];
+      }
       for (let img of imgs) {
         //找出高度最小的子容器
         let minDiv = box.children[0];
@@ -76,13 +80,19 @@
     }
     //滚动到底部时自动添加图片的函数
     addImgOnScrollEnd() {
+      this.enLoad = false;
+      let count = 0;
       //一次添加4张图片
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 8; i++) {
         let img = new Image();
         let _this = this;
         img.onload = function() {
           this.onload = null;
-          _this.add([this]);//图片载入完成后加入到dom树中去
+          _this.add(this);//图片载入完成后加入到dom树中去
+          count++;
+          if (count === 4) {
+            _this.enLoad = true;
+          }
         };
         let height = Math.round(Math.random() * 300 + 300);
         img.src = 'http://placekitten.com/400/' + height;
