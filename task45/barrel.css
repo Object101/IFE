@@ -1,0 +1,38 @@
+[class*='barrel'] {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+[class*='barrel'] img {
+  float: left;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.loading {
+  display: none;
+}
+
+.loading.on {
+  display: block;
+  text-align: center;
+}
+
+.loading:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    animation: ellipsis 2s infinite;
+    content: "\2026"; /* ascii code for the ellipsis character */
+}
+
+@keyframes ellipsis {
+  from {
+    width: 2px;
+  }
+  to {
+    width: 15px;
+  }
+}
