@@ -1,4 +1,5 @@
 !function () {
+  'use strict';
   class Waterfall {
     constructor() {
       let box = document.querySelector('[class*=waterfall]');
