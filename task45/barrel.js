@@ -64,7 +64,7 @@
           rowRatio = 0;
         }
       }
-      if (rows.length === 0) {
+      if (rows.length !== 0) {
         let row = document.createElement('div');
         row.style.height = 300 + 'px';
         for (let item of rows) {
