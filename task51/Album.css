@@ -1,0 +1,29 @@
+#album.puzzle { position: relative; width: 640px; height: 480px; margin: 30px auto; }
+#album.puzzle img { position: absolute; object-fit: cover; }
+#album.puzzle .one-1 { width: 100%; height: 100%; }
+#album.puzzle .two-1 { top: 0; left: 0; width: 100%; height: 100%; clip-path: polygon(0% 0%, 66.6% 0%, 33.3% 100%, 0% 100%); }
+#album.puzzle .two-2 { top: 0; left: 0; width: 100%; height: 100%; clip-path: polygon(66.6% 0%, 100% 0%, 100% 100%, 33.3% 100%); }
+#album.puzzle .three-1 { top: 0; left: 0; width: 62.5%; height: 100%; }
+#album.puzzle .three-2 { top: 0; left: 62.5%; width: 37.5%; height: 50%; }
+#album.puzzle .three-3 { top: 50%; left: 62.5%; width: 37.5%; height: 50%; }
+#album.puzzle [class|="four"] { width: 50%; height: 50%; }
+#album.puzzle .four-1 { top: 0; left: 0; }
+#album.puzzle .four-2 { top: 0; left: 50%; }
+#album.puzzle .four-3 { top: 50%; left: 0; }
+#album.puzzle .four-4 { top: 50%; left: 50%; }
+#album.puzzle .five-1 { top: 0; left: 0; width: 66.6%; height: 66.6%; }
+#album.puzzle .five-2 { top: 0; left: 66.6%; width: 33.3%; height: 44.4%; }
+#album.puzzle .five-3 { top: 44.4%; left: 66.6%; width: 33.3%; height: 55.5%; }
+#album.puzzle .five-4 { top: 66.6%; left: 33.3%; width: 33.3%; height: 33.3%; }
+#album.puzzle .five-5 { top: 66.6%; left: 0; width: 66.6%; height: 33.3%; }
+#album.puzzle .six-1 { top: 0; left: 0; width: 66.6%; height: 66.6%; }
+#album.puzzle .six-2 { top: 0; left: 66.6%; width: 33.3%; height: 33.3%; }
+#album.puzzle .six-3 { top: 33.3%; left: 66.6%; width: 33.3%; height: 33.3%; }
+#album.puzzle .six-4 { top: 66.6%; left: 66.6%; width: 33.3%; height: 33.3%; }
+#album.puzzle .six-5 { top: 66.6%; left: 33.3%; width: 33.3%; height: 33.3%; }
+#album.puzzle .six-6 { top: 66.6%; left: 0; width: 33.3%; height: 33.3%; }
+#album.waterfall div { float: left; }
+#album.waterfall div img { display: block; width: 100%; }
+#album.barrel div img { float: left; height: 100%; }
+
+/*# sourceMappingURL=Album.css.map

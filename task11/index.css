@@ -16,8 +16,7 @@ ul, ol {
   list-style: none;
 }
 
-.clearfix::after,
-.clearfix::before {
+.clearfix::after {
   content: '';
   display: block;
   clear: both;
@@ -81,6 +80,7 @@ nav ul li a {
 }
 
 .post img {
+  display: block;
   width: 100%;
 }
 
