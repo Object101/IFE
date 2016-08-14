@@ -33,7 +33,7 @@
     render(imgs) {
       let box = this.box;
       let padding = this.padding;
-      let maxRowWidth = box.clientWidth - padding * 2;
+      let maxRowWidth = parseInt(getComputedStyle(box).getPropertyValue('width'));
       let count = 0;
       let rowWidth = 0;
       let rowRatio = 0;
@@ -96,6 +96,12 @@
         _this.enLoad = true;
       }).catch(e => console.log(e));
     }
+
+    /**
+     * 加载图片并返回Promise
+     * @param  {String} path url
+     * @return {Object} Promise对象
+     */
     preLoadImg(path) {
       let padding = this.padding;
       return new Promise(function (resolve, reject) {
