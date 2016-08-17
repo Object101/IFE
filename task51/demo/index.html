@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>任务五十一：多功能相册</title>
+  <link rel="stylesheet" href="Album.css">
+  <link rel="stylesheet" href="index.css">
+  <script src="Album.js"></script>
+</head>
+<body>
+  <div id="album"></div>
+  <div id="controlPanel">
+    <h3>Control</h3>
+    <div class="url">
+      <input type="url" id="url" value="https://placehold.it/400x600/633">
+      <button id="add">添加图片</button>
+      <button id="addRandom">添加随机大小图片</button>
+      <button id="clear">清除图片</button>
+    </div>
+    <div class="layout">
+      <input type="radio" name="layout" value="puzzle" id="puzzle">
+      <div class="gutter">
+        图片间隔：
+        <input type="number" name="gutterx" id="gutterX" value="8" min="0">
+        <input type="number" name="guttery" id="gutterY" value="8" min="0">
+      </div>
+      <label for="puzzle">拼图布局</label>
+      <input type="radio" name="layout" value="waterfall" id="waterfall" checked>
+      <div class="special">
+        列数：
+        <input type="number" name="col" id="col" value="4" min="1">
+      </div>
+      <label for="waterfall">瀑布布局</label>
+      <input type="radio" name="layout" value="barrel" id="barrel">
+      <div class="special">
+        基础高度：
+        <input type="number" name="baseheight" id="baseHeight" value="250">
+      </div>
+      <label for="barrel">木桶布局</label>
+    </div>
+    <div class="fullscreen">
+      点击全屏：
+      <input type="radio" name="fullscreen" id="on" checked>
+      <label for="on">开</label>
+      <input type="radio" name="fullscreen" id="off">
+      <label for="off">关</label>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>

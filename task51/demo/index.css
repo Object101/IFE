@@ -1,0 +1,60 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#album {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+#controlPanel {
+  cursor: default;
+  position: fixed;
+  bottom: 10%;
+  left: 30%;
+  width: 450px;
+  height: 200px;
+  background-color: rgba(150, 150, 150, 0.7);
+  -webkit-user-select: none;
+}
+
+#controlPanel h3 {
+  cursor: move;
+  background-color: #0095dd;
+  margin-bottom: 10px;
+}
+
+#controlPanel .url input {
+  width: 186px;
+}
+
+#controlPanel .layout {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#controlPanel .layout .gutter {
+  position: absolute;
+  top: 120px;
+  left: 0;
+}
+
+#controlPanel .layout #puzzle:checked + .gutter {
+  display: none;
+}
+
+#controlPanel .layout .special {
+  display: none;
+  position: absolute;
+  top: 150px;
+}
+
+#controlPanel .layout #waterfall:checked + div {
+  display: block;
+  margin-left: 32px;
+}
+
+#controlPanel .layout #barrel:checked + div {
+  display: block;
+}
