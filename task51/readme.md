@@ -25,5 +25,5 @@
 ~~~
 
 
-###[API](./out/Album.js.html)
+###[API](http://object101.github.io/IFE/task51/out/Album.html)
   
