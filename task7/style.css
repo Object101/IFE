@@ -218,13 +218,14 @@ nav ul {
 }
 
 .select select {
-  width: 256px;
+  width: 216px;
   height: 36px;
+  padding-right: 20px;
   color: rgb(177, 177, 177);
   font: 12px "微软雅黑";
   text-indent: 10px;
   outline-style: none;
-  background: white 93% 0 no-repeat url(images/select.png);
+  background: white 105% 0 no-repeat url(images/select.png);
 }
 
 .select select option {
