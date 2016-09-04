@@ -73,7 +73,7 @@ nav ul {
   overflow-x: hidden;
   background-image: url(images/experience.jpg);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
 }
 #experience h1 {
   width: 460px;
