@@ -8,12 +8,12 @@ body {
   width: 100%;
 }
 
-nav {
-  height: 56px;
-}
-
 a {
   text-decoration: none;
+}
+
+nav {
+  height: 56px;
 }
 
 nav img {
