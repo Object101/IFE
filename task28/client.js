@@ -1,5 +1,5 @@
 function DynamicSystem(SpaceCraft) {
-  this.SpaceCraft = SpaceCraft; //保存飞船对象，方便引用飞船的其他系统，同时防止飞船对象被回收
+  this.SpaceCraft = SpaceCraft;
   this.anglePos = 0; //当前飞船位置
 }
 

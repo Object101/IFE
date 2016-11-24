@@ -156,7 +156,6 @@ function Planet() {
     } else {
       logDisplay('飞天' + id + '号已存在');
     }
-    
   };
   this.fly = function(id) {
     var info = {

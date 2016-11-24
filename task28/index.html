@@ -17,16 +17,22 @@
   </div>
   <div id="main">
     <div id="controlPanel">
-      <select name="dynamic" id="dynamic">
-        <option value="basic">前进号(速率30px/s, 能耗5%/s)</option>
-        <option value="professional">奔腾号(速率50px/s, 能耗7%/s)</option>
-        <option value="ultimate">超越号(速率80px/s, 能耗9%/s)</option>
-      </select>
-      <select name="energy" id="energy">
-        <option value="basic">劲量型(2%/s)</option>
-        <option value="professional">光能型(3%/s)</option>
-        <option value="ultimate">永久型(4%/s)</option>
-      </select>
+      <div>
+        <span>动力系统: </span>
+        <select name="dynamic" id="dynamic">
+          <option value="basic">前进号(速率30px/s, 能耗5%/s)</option>
+          <option value="professional">奔腾号(速率50px/s, 能耗7%/s)</option>
+          <option value="ultimate">超越号(速率80px/s, 能耗9%/s)</option>
+        </select>
+      </div>
+      <div>
+        <span>能源系统: </span>
+        <select name="energy" id="energy">
+          <option value="basic">劲量型(2%/s)</option>
+          <option value="professional">光能型(3%/s)</option>
+          <option value="ultimate">永久型(4%/s)</option>
+        </select>
+      </div>
       <div id="ship1">
         <p>飞天1号</p>
         <button id="ship1Create">创建</button>
