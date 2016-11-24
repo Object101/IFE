@@ -15,6 +15,7 @@ function breadthFirstPath(tree, queue) {
   while (queue[i]) {
     var length = queue[i].children.length;
     for (var j = 1; j < length; j++) {
+      // 之所以从1开始，因为在dom中，第一个节点是节点本身的说明，而非其他子节点
       queue.push(queue[i].children[j]);
     }
     i++;
@@ -24,14 +25,12 @@ function breadthFirstPath(tree, queue) {
 function render(queue) {
   var currentNode = queue.shift();
   if (!currentNode) {
+    mutex = false;
     return;
   }
   currentNode.style.backgroundColor = 'blue';
   setTimeout(function() {
     currentNode.style.backgroundColor = 'white';
-  }, 500);
-
-  setTimeout(function() {
     render(queue);
   }, 500);
 }
@@ -40,24 +39,25 @@ function match(queue, value) {
   var currentNode = queue.shift();
   if (!currentNode) {
     alert("未找到匹配的节点");
+    mutex = false;
     return;
   }
   if (value === currentNode.firstElementChild.innerHTML) {
     currentNode.style.backgroundColor = 'red';
     matchElement = currentNode;
+    mutex = false;
     return;
   }
   currentNode.style.backgroundColor = 'blue';
   setTimeout(function() {
     currentNode.style.backgroundColor = 'white';
-  }, 500);
-  setTimeout(function() {
     match(queue, value);
   }, 500);
 }
 
 var matchElement;//上次找到的元素
 var selectedElement;//被选择的元素
+var mutex = false;
 
 window.onload = function() {
   var tree = document.querySelector('#root'),
@@ -70,6 +70,8 @@ window.onload = function() {
       content = document.querySelector('#content'),
       add = document.querySelector('#add');
   dft.onclick = function() {
+    if (mutex) return;
+    mutex = true;
     if (matchElement) {
       matchElement.style.backgroundColor = 'white';//将上次找到的元素恢复背景颜色
     }
@@ -79,6 +81,8 @@ window.onload = function() {
     return false;
   }
   bft.onclick = function() {
+    if (mutex) return;
+    mutex = true;
     if (matchElement) {
       matchElement.style.backgroundColor = 'white';
     }
@@ -88,6 +92,8 @@ window.onload = function() {
     return false;
   }
   dfs.onclick = function() {
+    if (mutex) return;
+    mutex = true;
     if (matchElement) {
       matchElement.style.backgroundColor = 'white';
     }
@@ -98,6 +104,8 @@ window.onload = function() {
     return false;
   }
   bfs.onclick = function() {
+    if (mutex) return;
+    mutex = true;
     if (matchElement) {
       matchElement.style.backgroundColor = 'white';
     }
