@@ -88,10 +88,10 @@ function postOrder(node, queue) {
   var leftChild = node.children[0],
       rightChild = node.children[1];
   if (leftChild) {
-    inOrder(leftChild, queue);
+    postOrder(leftChild, queue);
   }
   if (rightChild) {
-    inOrder(rightChild, queue);
+    postOrder(rightChild, queue);
   }
   queue.push(node);
 }
@@ -99,13 +99,12 @@ function postOrder(node, queue) {
 function render(queue, delay) {
   var currentNode = queue.shift();
   if (!currentNode) {
+    mutex = false;
     return;
   }
   currentNode.style.backgroundColor = 'blue';
   setTimeout(function() {
     currentNode.style.backgroundColor = 'white';
-  }, delay);
-  setTimeout(function() {
     render(queue, delay);
   }, delay);
 }
@@ -113,20 +112,33 @@ function render(queue, delay) {
 var nlr = document.querySelector('#nlr'),
     lnr = document.querySelector('#lnr'),
     lrn = document.querySelector('#lrn'),
-    tree = document.querySelector('#tree');
+    tree = document.querySelector('#tree'),
+    mutex = false;
 nlr.onclick = function() {
+  if (mutex) {
+    return;
+  }
+  mutex = true;
   var queue = NLR(tree);
   render(queue, 500);
   return false;
 };
 
 lnr.onclick = function() {
+  if (mutex) {
+    return;
+  }
+  mutex = true;
   var queue = LNR(tree);
   render(queue, 500);
   return false;
 }
 
 lrn.onclick = function() {
+  if (mutex) {
+    return;
+  }
+  mutex = true;
   var queue = LRN(tree);
   render(queue, 500);
   return false;
