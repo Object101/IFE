@@ -9,7 +9,7 @@
   <script src="Album.js"></script>
 ~~~
 
-2. 创建一个div作为相册容器，需指定id，宽度。若要使用拼图布局需指定高度。若添加类名应避免'album'，以免和框架冲突
+2. 创建一个div作为相册容器，需设置id，宽度。若要使用拼图布局需设置高度。
 ~~~html
   <div id="album" class="myalbum"></div>
 ~~~
@@ -23,7 +23,3 @@
 ~~~javascript
   album.setImage('https://placehold.it/350x500/ff0', {layout: 'barrel', baseHeight: 300});
 ~~~
-
-
-###[API](http://object101.github.io/IFE/task51/out/Album.html)
-  
