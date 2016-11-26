@@ -3,6 +3,7 @@
 [DEMO](http://object101.github.io/IFE/task51/demo/index.html)
 
 ###使用方法
+
 1. 包含Album.css和Album.js在html文件中。
 ~~~html
   <link rel="stylesheet" href="Album.css">
