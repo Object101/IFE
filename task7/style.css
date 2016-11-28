@@ -1,625 +1,612 @@
 * {
-  margin: 0px;
-  padding: 0px;
+	margin: 0px;
+	padding: 0px;
 }
 
 body {
-  min-width: 1280px;
-  width: 100%;
+	min-width: 1280px;
+	width: 100%;
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
-nav {
-  height: 56px;
+li {
+	list-style: none;
 }
 
-nav img {
-  display: inline-block;
-  margin-left: 50px;
-  margin-top: 10px;
+.head {
+	display: flex;
+	justify-content: space-between;
+	height: 56px;
 }
 
-nav span {
-  position: absolute;
-  left: 95px;
-  top: 19px;
-  font: 21px "黑体";
+.logo {
+	margin-left: 50px;
+	margin-top: 10px;
+	vertical-align: bottom;
 }
 
-nav ul li {
-  display: inline-block;
-  padding: 0 20px 0 20px;
+.title {
+	margin-bottom: 10px;
+	font: 21px "黑体";
+}
+
+.nav {
+	height: 100%;
+	display: flex;
+	margin-right: 30px;
+}
+
+.nav > li {
+	height: 100%;
+	line-height: 50px;
+	padding: 0 20px 0 20px;
 }
 
 .direction {
-  padding-bottom: 23px;
+	display: block;
+	height: 100%;
+	color: black;
+	font: 14px "微软雅黑";
+}
+
+.direction::before {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
 }
 
 .direction:hover {
-  color: red;
-  background-image: url(images/hover.png);
-  background-position: 0 100%;
-  background-repeat: no-repeat;
+	color: red;
+	background-image: url(images/hover.png);
+	background-position: 0 100%;
+	background-repeat: no-repeat;
 }
 
-nav ul li a {
-  color: black;
-  font: 14px "微软雅黑";
+.login {
+	font: 14px "微软雅黑";
+	padding-left: 15px;
+	background-image: url(images/login.png);
+	background-repeat: no-repeat;
+	color: red;
 }
 
-nav ul {
-  float: right;
-  position: relative;
-  top: 15px;
-  margin-right: 30px;
+.banner {
+	width: 100%;
+	height: 851px;
+	overflow-x: hidden;
+	background-image: url(images/experience.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
-#login {
-  background-image: url(images/login.png);
-  background-repeat: no-repeat;
-  background-position: 16px;
-  text-indent: 15px;
+.banner-title {
+	width: 460px;
+	font: 60px "微软雅黑";
+	color: #fff;
+	margin: 234px 0 0 117px;
 }
 
-#login a {
-  color: red;
-}
-#experience {
-  width: 100%;
-  height: 851px;
-  overflow-x: hidden;
-  background-image: url(images/experience.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-#experience h1 {
-  width: 460px;
-  font: 60px "微软雅黑";
-  color: #fff;
-  position: relative;
-  top: 234px;
-  left: 117px;
+.banner-p {
+	margin: 31px 0 0 125px;
+	font: 21px/35px "微软雅黑";
+	color: white;
 }
 
-#experience p {
-  position: relative;
-  top: 265px;
-  left: 125px;
-  font: 21px/35px "微软雅黑";
-  color: white;
+.banner-link {
+	margin: 66px 0 0 125px;
+	display: block;
+	width: 330px;
+	height: 50px;
+	color: white;
+	font: 30px "微软雅黑";
+	background-color: rgb(231, 79, 77);
+	text-indent: 110px;
+	padding-top: 8px;
+	transition: background-color 0.5s, color 0.5s;
 }
 
-#experience a {
-  position: relative;
-  top: 300px;
-  left: 125px;
-  display: block;
-  width: 330px;
-  height: 50px;
-  color: white;
-  font: 30px "微软雅黑";
-  background-color: rgb(231, 79, 77);
-  text-indent: 110px;
-  padding-top: 8px;
-  transition: background-color 0.5s, color 0.5s;
+.banner-link:hover {
+	background-color: white;
+	color: rgb(231, 79, 77);
 }
 
-#experience a:hover {
-  background-color: white;
-  color: rgb(231, 79, 77);
+.effect {
+	height: 250px;
 }
 
-#effect {
-  width: 100%;
-  height: 250px;
+.effect-list {
+	display: flex;
 }
 
-#effect ul li {
-  float: left;
-  width: 25%;
-  height: 250px;
-  background-repeat: no-repeat;
-  background-position: 50% 20%;
-  list-style-type: none;
+.effect-list > li {
+	width: 25%;
+	height: 250px;
+	background-repeat: no-repeat;
+	background-position: 50% 20%;
+	list-style-type: none;
 }
 
-#effect ul li p {
-  margin: 140px auto;
-  text-align: center;
-  font: 14px/18px "黑体";
+.effect-list-text {
+	margin: 140px auto;
+	text-align: center;
+	font: 14px/18px "黑体";
 }
 
-.effect_1 {
-  background-image: url(images/effect_1.png);
+.effect-list > li:nth-child(1) {
+	background-image: url(images/effect_1.png);
 }
 
-.effect_2 {
-  background-image: url(images/effect_2.png);
+.effect-list > li:nth-child(2) {
+	background-image: url(images/effect_2.png);
 }
 
-.effect_3 {
-  background-image: url(images/effect_3.png)
+.effect-list > li:nth-child(3) {
+	background-image: url(images/effect_3.png);
 }
 
-.effect_4 {
-  background-image: url(images/effect_4.png)
+.effect-list > li:nth-child(4) {
+	background-image: url(images/effect_4.png);
 }
 
-.effect_1 p,
-.effect_2 p,
-.effect_3 p {
-  background-image: url(images/list-style.png);
-  background-position: 100%;
-  background-repeat: no-repeat;
+.effect-list > li + li > .effect-list-text {
+	background-image: url(images/list-style.png);
+	background-repeat: no-repeat;
 }
 
-#unknown {
-  width: 100%;
-  height: 360px;
-  background-color: rgb(237, 237, 237);
-  background-image: url(images/unknown.png);
-  background-repeat: no-repeat;
-  background-position: 50% 30%;
+.unknown {
+	width: 100%;
+	height: 360px;
+	background-color: rgb(237, 237, 237);
+	background-image: url(images/unknown.png);
+	background-repeat: no-repeat;
+	background-position: 50% 30%;
 }
 
-#unknown h1 {
-  position: relative;
-  top: 230px;
-  width: 865px;
-  margin: 0 auto;
-  font: 54px "黑体";
-  color: rgb(161, 161, 161);
+.unknown-text {
+	position: relative;
+	top: 230px;
+	width: 865px;
+	margin: 0 auto;
+	font: 54px "黑体";
+	color: rgb(161, 161, 161);
 }
 
-#address {
-  height: 340px;
-  background-image: url(images/map.jpg);
-  background-repeat: no-repeat;
-  background-size: 100%;
+.address {
+	height: 340px;
+	background-image: url(images/map.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
 }
 
-#address h1 {
-  position: relative;
-  top: 53px;
-  width: 231px;
-  height: 40px;
-  margin: 0 auto;
-  font: 21px "微软雅黑";
-  color: white;
-  background-image: url(images/white.png);
-  background-repeat: no-repeat;
-  background-position: 50% 100%;
+.address-t1 {
+	height: 40px;
+	padding-top: 53px;
+	font: 21px "微软雅黑";
+	text-align: center;
+	color: #fff;
+	background-image: url(images/white.png);
+	background-repeat: no-repeat;
+	background-position: 50% 100%;
 }
 
-#address p {
-  position: relative;
-  top: 80px;
-  width: 336px;
-  margin: 0 auto;
-  font: 12px "微软雅黑";
-  color: white;
+.address-t2 {
+	text-align: center;
+	margin: 40px auto 0;
+	font: 12px "微软雅黑";
+	color: #fff;
 }
 
-#address form {
-  position: relative;
-  top: 120px;
-  width: 1030px;
-  margin: 0 auto;
+.form-list {
+	display: flex;
+	width: 1030px;
+	margin: 120px auto 0;
 }
 
-.select, .search {
-  display: inline-block;
-  width: 236px;
-  overflow: hidden;
-  margin: 0 5px;
+.form-list > li {
+	width: 236px;
+	margin: 0 5px;
 }
 
-.select select {
-  width: 216px;
-  height: 36px;
-  padding-right: 20px;
-  color: rgb(177, 177, 177);
-  font: 12px "微软雅黑";
-  text-indent: 10px;
-  outline-style: none;
-  background: white 105% 0 no-repeat url(images/select.png);
+.li-select {
+	width: 216px;
+	height: 36px;
+	padding-right: 20px;
+	color: rgb(177, 177, 177);
+	font: 12px "微软雅黑";
+	text-indent: 10px;
+	outline-style: none;
+	/*background: white 105% 0 no-repeat url(images/select.png);*/
 }
 
-.select select option {
-  background-color: rgb(177, 177, 177);
-  color: rgb(120, 120, 120);
+.li-select > option {
+	background-color: rgb(177, 177, 177);
+	color: rgb(120, 120, 120);
 }
 
-.search input {
-  width: 236px;
-  height: 36px;
-  background-color: rgb(190, 78, 72);
-  outline-style: none;
-  border: none;
-  color: white;
-  font: 14px "微软雅黑";
-  letter-spacing: 20px;
-  text-align: center;
-  text-indent: 15px;
+.search {
+	width: 236px;
+	height: 36px;
+	background-color: rgb(190, 78, 72);
+	outline-style: none;
+	border: none;
+	color: white;
+	font: 14px "微软雅黑";
+	letter-spacing: 20px;
+	text-align: center;
 }
 
-#address form ul li select:hover {
-  outline: 1px solid red;
+.li-select:hover {
+	outline: 1px solid rgb(190, 78, 72);
 }
 
-#address form ul li input:hover {
-  background-color: rgb(225, 104, 100);
+.search:hover {
+	background-color: rgb(225, 104, 100);
 }
 
-
-#action {
-  height: 631px;
-  background-color: rgb(247, 247, 247);
-  overflow: hidden;
+.action {
+	height: 631px;
+	background-color: rgb(247, 247, 247);
+	overflow: hidden;
 }
 
-#action ul li {
-  display: inline-block;
-  width: 236px;
-  height: 389px;
-  margin: 0 8px;
-
+.action-list {
+	display: flex;
+	justify-content: space-between;
+	width: 1110px;
+	height: 420px;
+	margin: 115px auto 0;
 }
 
-#action ul li h3 {
-
-  font: 14px "微软雅黑";
-  text-align: center;
+.action-list > li {
+	height: 389px;
 }
 
-#action ul li p {
-  font: 14px/2em "微软雅黑";
-  text-align: center;
-  color: rgb(152, 152, 152);
+.action-title {
+	font: 14px "微软雅黑";
+	text-align: center;
 }
 
-
-#beijing img {
-  display: block;
-  padding: 10px 6px 10px 4px;
-  margin: 0 auto 10px;
-  background-color: white;
+.action-text {
+	font: 14px/2em "微软雅黑";
+	text-align: center;
+	color: rgb(152, 152, 152);
 }
 
-#shanghai img {
-  display: inline-block;
-  padding: 10px 6px 10px 4px;
-  margin: 0 auto;
-  background-color: white;
+.action-img {
+	transition: transform 0.3s;
 }
 
-#action #shanghai h3 {
-  font-size: 1.1em;
-  letter-spacing: 1em;
-  text-indent: 13px;
+.action-img:hover {
+	transform: scale(1.3);
 }
 
-#shenzhen img {
-  display: block;
-  padding: 10px 4px 10px 6px;
-  margin: 0 auto 10px;
-  background-color: white;
+.action-img:nth-child(0) {
+	display: block;
+	padding: 10px 6px 10px 4px;
+	margin: 0 auto 10px;
+	background-color: white;
 }
 
-#xianggang img {
-  display: block;
-  padding: 10px 4px;
-  margin: 0 auto 10px;
-  background-color: white;
+.action-img:nth-child(1) {
+	display: inline-block;
+	padding: 10px 6px 10px 4px;
+	margin: 0 auto;
+	background-color: white;
 }
 
-#action ul {
-  width: 1110px;
-  height: 420px;
-  margin: 115px auto 0;
+.action-img:nth-child(2) {
+	display: block;
+	padding: 10px 4px 10px 6px;
+	margin: 0 auto 10px;
+	background-color: white;
 }
 
-#time {
-  width: 33.3%;
-  height: 566px;
-  padding-left: 66.6%;
-  background: no-repeat url(images/time.jpg);
-  background-size: 66.6%;
+.action-img:nth-child(3) {
+	display: block;
+	padding: 10px 4px;
+	margin: 0 auto 10px;
+	background-color: white;
 }
 
-#time h3 {
-  padding-top: 160px;
-  padding-bottom:  10px;
-  text-align: center;
+.time {
+	width: 33.3%;
+	height: 566px;
+	padding-left: 66.6%;
+	background: no-repeat url(images/time.jpg);
+	background-size: 66.6%;
 }
 
-#time h3 span {
-  color: red;
+.time-title {
+	padding-top: 160px;
+	padding-bottom: 10px;
+	text-align: center;
 }
 
-#time p {
-  font: 12px/30px "宋体";
-  text-align: center;
-  color: rgb(176, 176, 176);
+.date {
+	color: red;
 }
 
-#time a {
-  display: block;
-  width: 107px;
-  height: 27px;
-  padding-top: 8px;
-  margin: 55px auto 0;
-  border: 1px solid red;
-  text-align: center;
-  color: red;
-  font: 12px "微软雅黑";
+.time-text {
+	font: 12px/30px "宋体";
+	text-align: center;
+	color: rgb(176, 176, 176);
 }
 
-#time a:hover {
-  background-color: rgb(233, 60, 0);
-  color: white;
+.time-more {
+	display: block;
+	width: 107px;
+	height: 27px;
+	padding-top: 8px;
+	margin: 55px auto 0;
+	border: 1px solid red;
+	text-align: center;
+	color: red;
+	font: 12px "微软雅黑";
 }
 
-#time img {
-  display: block;
-  margin: 18px auto 0;
+.time-more:hover {
+	background-color: rgb(233, 60, 0);
+	color: white;
 }
 
-#red {
-  float: left;
-  width: 33.3%;
-  height: 521px;
-  background-color: #e73f4d;
-  color: white;
+.time-page {
+	display: block;
+	margin: 18px auto 0;
 }
 
-#white {
-  float: left;
-  width: 33.3%;
-  height: 521px;
+.life {
+	display: flex;
+	height: 521px;
 }
 
-#white + img {
-  float: left;
-  display: inline-block;
-  width: 33.3%;
-  height: 521px;
+.red {
+	flex: 1 0 0;
+	background-color: #e73f4d;
+	color: white;
 }
 
-#red p,
-#white p {
-  padding: 173px 0 20px;
-  font: 21px "黑体";
-  text-align: center;
+.white {
+	flex: 1 0 0;
 }
 
-#red a,
-#white a {
-  display: block;
-  width: 166px;
-  height: 37px;
-  margin: 30px auto 0;
-  padding-top: 10px;
-  font: 21px "黑体";
-  text-align: center;
+.life-img {
+	flex: 1 0 0;
+	height: 100%;
+	object-fit: cover;
 }
 
-#red a {
-  color: white;
-  border: 1px solid white;
+.red-text,
+.white-text {
+	padding: 173px 0 20px;
+	font: 21px "黑体";
+	text-align: center;
 }
 
-#white a {
-  color: #e73f4d;
-  border: 1px solid #e73f4d;
+.red-link,
+.white-link {
+	display: block;
+	width: 166px;
+	height: 37px;
+	margin: 30px auto 0;
+	padding-top: 10px;
+	font: 21px "黑体";
+	text-align: center;
 }
 
-#red p {
-  background-image: url(images/white.png);
-  background-repeat: no-repeat;
-  background-position: 50% 100%;
+.red-link {
+	color: white;
+	border: 1px solid white;
 }
 
-#white p {
-  background-image: url(images/prey.png);
-  background-repeat: no-repeat;
-  background-position: 50% 100%;
+.white-link {
+	color: #e73f4d;
+	border: 1px solid #e73f4d;
 }
 
-#volunteer {
-  height: 749px;
-  clear: both;
+.red-text {
+	background-image: url(images/white.png);
+	background-repeat: no-repeat;
+	background-position: 50% 100%;
 }
 
-#volunteer > h3 {
-  font: 21px "黑体";
-  text-align: center;
-  padding-top: 118px;
-  padding-bottom: 15px;
-  background-image: url(images/red.png);
-  background-repeat: no-repeat;
-  background-position: 50% 100%;
+.white-text {
+	background-image: url(images/prey.png);
+	background-repeat: no-repeat;
+	background-position: 50% 100%;
 }
 
-#volunteer > p {
-  margin-top: 15px;
-  font: 12px/18px "微软雅黑";
-  text-align: center;
-  color: #b0b0b0;
+.volunteer {
+	height: 749px;
 }
 
-#protocol > div {
-  float: left;
-  width: 290px;
+.volunteer-title {
+	font: 21px "黑体";
+	text-align: center;
+	padding-top: 118px;
+	padding-bottom: 15px;
+	background-image: url(images/red.png);
+	background-repeat: no-repeat;
+	background-position: 50% 100%;
 }
 
-#protocol > div h3 {
-  font: 14px "黑体";
-  margin-bottom: 15px;
+.volunteer-text {
+	margin-top: 15px;
+	font: 12px/18px "微软雅黑";
+	text-align: center;
+	color: #b0b0b0;
 }
 
-#protocol > div p {
-  font: 12px/21px "宋体";
-  color: #b0b0b0;
+.protocol {
+	margin-top: 107px;
+	display: flex;
+	justify-content: center;
 }
 
-#protocol > div button {
-  display: block;
-  margin: 0 0 39px 230px;
-  border: none;
-  padding-left: 15px;
-  background: url(images/arrow.png) no-repeat 0 65%;
-  font: 12px "宋体";
-  color: #6c6868;
+.protocol-des {
+	width: 290px;
 }
-#link {
-  float: left;
-  width: 640px;
-  margin-left: 76px;
+
+.protocol-title {
+	font: 14px "黑体";
+	margin-bottom: 15px;
+}
+
+.protocol-text {
+	font: 12px/21px "宋体";
+	color: #b0b0b0;
+}
+
+.protocol-more {
+	display: block;
+	margin: 0 0 39px 230px;
+	border: none;
+	padding-left: 15px;
+	background: url(images/arrow.png) no-repeat 0 65%;
+	font: 12px "宋体";
+	color: #6c6868;
 }
 
 .links {
-  display: inline-block;
-  width: 312px;
-  height: 26px;
-  padding-top: 15px;
-  padding-bottom: 9px;
-  margin-bottom: 17px;
-  background-color: #edecee;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	width: 640px;
+	margin-left: 76px;
 }
 
-.links label {
-  margin-left: 20px;
-  font: 12px "宋体";
-  color: #6c6868;
+.link {
+	width: 312px;
+	height: 26px;
+	padding-top: 15px;
+	padding-bottom: 9px;
+	margin-bottom: 17px;
+	background-color: #edecee;
 }
 
-.links input {
-  height: 22px;
-  border: none;
-  background-color: #edecee;
+.link-label {
+	margin-left: 20px;
+	font: 12px "宋体";
+	color: #6c6868;
 }
 
-#name,
-#tel {
-  margin-right: 8px;
+.link-input {
+	height: 22px;
+	border: none;
+	background-color: #edecee;
 }
 
-#linkname,
-#linkage {
-  margin-left: 24px;
-}
-#dreamlife {
-  width: 639px;
-  height: 106px;
-  padding-top: 15px;
-  background-color: #edecee;
+.link:nth-child(1),
+.link:nth-child(3) {
+	margin-right: 8px;
 }
 
-#dreamlife label {
-  float: left;
-  margin-left: 20px;
-  font: 12px "宋体";
-  color: #6c6868;
+.dreamlife {
+	display: flex;
+	width: 639px;
+	height: 106px;
+	padding-top: 15px;
+	background-color: #edecee;
 }
 
-#dreamlife textarea {
-  height: 60px;
-  width: 463px;
-  padding-bottom: 30px;
-  border: none;
-  background-color: #edecee;
-  color: #6c6868;
+.link-textarea {
+	height: 60px;
+	width: 463px;
+	padding-bottom: 30px;
+	border: none;
+	background-color: #edecee;
+	color: #6c6868;
 }
 
-#link input[type="submit"] {
-  width: 639px;
-  height: 41px;
-  margin-top: 15px;
-  border: none;
-  background-color: #edecee;
-  font: 14px "黑体";
+.link-submit {
+	width: 639px;
+	height: 41px;
+	margin-top: 15px;
+	border: none;
+	background-color: #edecee;
+	font: 14px "黑体";
 }
 
-#protocol {
-  width: 1010px;
-  margin: 107px auto 0;
+.connect {
+	height: 361px;
+	background-color: #33363f;
 }
 
-#connect {
-  height: 361px;
-  background-color: #33363f;
+.connect-us {
+	padding-top: 92px;
+	font: 21px "黑体";
+	color: white;
+	text-align: center;
 }
 
-#connect h3 {
-  padding-top: 92px;
-  font: 21px "黑体";
-  color: white;
-  text-align: center;
+.connect-p {
+	margin-top: 8px;
+	font: 12px/18px "宋体";
+	color: #f5f5f5;
+	text-align: center;
 }
 
-#connect p {
-  margin-top: 8px;
-  font: 12px/18px "宋体";
-  color: #f5f5f5;
-  text-align: center;
+.connect-form {
+	display: flex;
+	justify-content: center;
+	height: 41px;
+	margin-top: 20px;
 }
 
-#connect form {
-  width: 511px;
-  height: 41px;
-  margin: 20px auto 0;
+.connect-input {
+	width: 416px;
+	height: 41px;
+	border: none;
+	padding-left: 15px;
 }
 
-#connect form input[type="mail"] {
-  width: 431px;
-  height: 41px;
-  border: none;
+.connect-submit {
+	width: 80px;
+	height: 41px;
+	border: none;
+	color: white;
+	background-color: #707178;
 }
 
-#connect form input[type="submit"] {
-  width: 80px;
-  height: 41px;
-  border: none;
-  color: white;
-  background-color: #707178;
+.connect-list {
+	display: flex;
+	justify-content: center;
+	margin-top: 37px;
 }
 
-#connect ul li {
-  display: inline-block;
-  padding: 0 13px;
+.connect-list > li {
+	padding: 0 13px;
 }
 
-#connect ul li a {
-  border: none;
-  background-color: #33363f;
+.connect-link {
+	display: block;
+	border: none;
+	background-color: #33363f;
 }
 
-#connect ul {
-  width: 209px;
-  font-size: 0;
-  margin: 37px auto 0;
+.connect-link > img {
+	vertical-align: bottom;
 }
 
-footer {
-  height: 58px;
-  background-color: #303039;
-  font: 12px "宋体";
-  color: white;
+.footer {
+	height: 58px;
+	background-color: #303039;
+	font: 12px "宋体";
+	color: white;
 }
 
-footer p.new2016 {
-  float: left;
-  padding: 30px 0 5px 100px;
+.new2016 {
+	float: left;
+	padding: 30px 0 5px 100px;
 }
 
-footer a {
-  display: block;
-  float: right;
-  padding: 30px 100px 5px 0;
-  font: 12px "宋体";
-  color: white;
+.back {
+	display: block;
+	float: right;
+	padding: 30px 100px 5px 0;
+	font: 12px "宋体";
+	color: white;
 }

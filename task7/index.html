@@ -6,54 +6,56 @@
   <title>常见的技术产品官网的页面架构及样式布局</title>
 </head>
 <body>
-  <nav>
-    <img src="images/logo.png" alt="New World">
-    <span>新世界</span>
-    <ul>
+  <header class="head">
+    <div class="">
+      <img src="images/logo.png" alt="New World" class="logo">
+      <span class="title">新世界</span>
+    </div>
+    <ul class="nav">
       <li><a href="#" class="direction">首页</a></li>
       <li><a href="#" class="direction">最新活动</a></li>
       <li><a href="#" class="direction">项目介绍</a></li>
       <li><a href="#" class="direction">爱心社区</a></li>
       <li><a href="#" class="direction">关于我们</a></li>
-      <li  id="login"><a href="#">登录</a></li>
+      <li><a href="#" class="login">登录</a></li>
     </ul>
-  </nav>
-  <div id="experience">
-    <h1>Time of new life</h1>
-    <p>新时代，年轻的人们让我们在一起<br>体验新生活，享受新生活</p>
-    <a href="#">开始体验</a>
+  </header>
+  <div class="banner">
+    <h1 class="banner-title">Time of new life</h1>
+    <p class="banner-p">新时代，年轻的人们让我们在一起<br>体验新生活，享受新生活</p>
+    <a href="#" class="banner-link">开始体验</a>
   </div>
-  <div id="effect">
-    <ul>
-      <li class="effect_1">
-        <p>打造全新世界观，让你更<br>爱你的生活</p>
+  <div class="effect">
+    <ul class="effect-list">
+      <li>
+        <p class="effect-list-text">打造全新世界观，让你更<br>爱你的生活</p>
       </li>
-      <li class="effect_2">
-        <p>丰富多彩的公益活动，发<br>挥新世界的主人公意识</p>
+      <li>
+        <p class="effect-list-text">丰富多彩的公益活动，发<br>挥新世界的主人公意识</p>
       </li>
-      <li class="effect_3">
-        <p>时尚的新理念，超前体验<br>未知的生活</p>
+      <li>
+        <p class="effect-list-text">时尚的新理念，超前体验<br>未知的生活</p>
       </li>
-      <li class="effect_4">
-        <p>完善的培养机制，培养你<br>全新的世界观</p>
+      <li>
+        <p class="effect-list-text">完善的培养机制，培养你<br>全新的世界观</p>
       </li>
     </ul>
   </div>
-  <div id="unknown">
-    <h1>关于新世界，你不知道的还有什么？</h1>
+  <div class="unknown">
+    <h1 class="unknown-text">关于新世界，你不知道的还有什么？</h1>
   </div>
-  <div id="address">
-    <h1>查找新世界城市活动信息</h1>
-    <p>每个城市有不同的活动信息，请自觉查询您所需要了解的城市</p>
-    <form action="">
-      <ul>
-        <li class="select">
-          <select name="country">
+  <div class="address">
+    <h1 class="address-t1">查找新世界城市活动信息</h1>
+    <p class="address-t2">每个城市有不同的活动信息，请自觉查询您所需要了解的城市</p>
+    <form class="address-form">
+      <ul class="form-list">
+        <li>
+          <select name="country" class="li-select">
             <option value="中国" selected>中国</option>
           </select>
         </li>
-        <li class="select">
-          <select name="province">
+        <li>
+          <select name="province" class="li-select">
             <option value="北京市">北京市</option>
             <option value="天津市">天津市</option>
             <option value="河北省">河北省</option>
@@ -62,115 +64,118 @@
             <option value="辽宁省">辽宁省</option>
           </select>
         </li>
-        <li class="select">
-          <select name="city">
+        <li>
+          <select name="city" class="li-select">
             <option value="沈阳">沈阳</option>
           </select>
         </li>
-        <li class="search">
-          <input type="submit" value="搜索">
+        <li>
+          <input type="submit" value="搜索" class="search">
         </li>
       </ul>
     </form>
   </div>
-  <div id="action">
-    <ul>
-      <li id="beijing">
-        <img src="images/action_1.jpg" alt=" ">
-        <h3>北京活动</h3>
-        <p>新社区大联盟</p>
+  <div class="action">
+    <ul class="action-list">
+      <li>
+        <img src="images/action_1.jpg" alt=" " class="action-img">
+        <h3 class="action-title">北京活动</h3>
+        <p class="action-text">新社区大联盟</p>
       </li>
-      <li id="shanghai">
-        <h3>上海活动</h3>
-        <p>夜上海新景观探索</p>
-        <img src="images/action_2.jpg" alt="">
+      <li>
+        <h3 class="action-title">上海活动</h3>
+        <p class="action-text">夜上海新景观探索</p>
+        <img src="images/action_2.jpg" alt="" class="action-img">
       </li>
-      <li id="shenzhen">
-        <img src="images/action_3.jpg" alt="">
-        <h3>深圳活动</h3>
-        <p>全新海岸线观点站</p>
+      <li>
+        <img src="images/action_3.jpg" alt="" class="action-img">
+        <h3 class="action-title">深圳活动</h3>
+        <p class="action-text">全新海岸线观点站</p>
       </li>
-      <li id="xianggang">
-        <img src="images/action_4.jpg" alt="">
-        <h3>香港活动</h3>
-        <p>奢侈消费大派送</p>
+      <li>
+        <img src="images/action_4.jpg" alt="" class="action-img">
+        <h3 class="action-title">香港活动</h3>
+        <p class="action-text">奢侈消费大派送</p>
       </li>
     </ul>
   </div>
-  <div id="time">
-    <h3>新世界/<span>01</span></h3>
-    <p>新世界是个新世界新世界是个新世界</p>
-    <p>新世界是个新世界新世界是个新世界</p>
-    <p>新世界是个新世界新世界是个新世界</p>
-    <p>新世界是个新世界</p>
-    <a href="#">更多详情</a>
-    <img src="images/gundong.png" alt="">
+  <div class="time">
+    <h3 class="time-title">新世界/<span class="date">01</span></h3>
+    <p class="time-text">新世界是个新世界新世界是个新世界</p>
+    <p class="time-text">新世界是个新世界新世界是个新世界</p>
+    <p class="time-text">新世界是个新世界新世界是个新世界</p>
+    <p class="time-text">新世界是个新世界</p>
+    <a href="#" class="time-more">更多详情</a>
+    <img src="images/gundong.png" alt="" class="time-page">
   </div>
-  <div id="red">
-    <p>新时代<br>关于爱生活的我们</p>
-    <a href="#">查看更多</a>
+  <div class="life">
+    <div class="red">
+      <p class="red-text">新时代<br>关于爱生活的我们</p>
+      <a href="#" class="red-link">查看更多</a>
+    </div>
+    <div class="white">
+      <p class="white-text">新时代<br>关于爱生活的我们</p>
+      <a href="#" class="white-link">查看更多</a>
+    </div>
+    <img src="images/life.jpg" alt="" class="life-img">
   </div>
-  <div id="white">
-    <p>新时代<br>关于爱生活的我们</p>
-    <a href="#">查看更多</a>
-  </div>
-  <img src="images/life.jpg" alt="">
-  <div id="volunteer">
-    <h3>成为我们的志愿者</h3>
-    <p>新世界的大家庭需要每一个爱生活的人的加入，如果你够年轻，有梦想，有激情<br>那就不要犹豫，快来加入我们，成为改变所有人生活的人
+  <div class="volunteer">
+    <h3 class="volunteer-title">成为我们的志愿者</h3>
+    <p class="volunteer-text">新世界的大家庭需要每一个爱生活的人的加入，如果你够年轻，有梦想，有激情<br>那就不要犹豫，快来加入我们，成为改变所有人生活的人
     </p>
-    <div id="protocol">
-      <div>
-        <h3>新世界志愿者协议</h3>
-        <p>加入新世界志愿者的人员必须遵守中华人民共和国的<br>  相关法律法规，并且本着平等资源的原则......</p>
-        <button>more</button>
-        <h3>新世界志愿者权利</h3>
-        <p>新世界志愿者享受新世界内部所有资源共享的权利，并<br> 且享受所在四新世界活动的优先参与资格</p>
-        <button>more</button>
-        <h3>更多条款</h3>
-        <button>more</button>
-      </div>
-      <form action="" id="link">
-        <div class="links" id="name">
-          <label for="linkname">姓名：</label>
-          <input type="text" name="name" id="linkname">
+    <div class="protocol">
+      <section class="protocol-des">
+        <h3 class="protocol-title">新世界志愿者协议</h3>
+        <p class="protocol-text">加入新世界志愿者的人员必须遵守中华人民共和国的<br>  相关法律法规，并且本着平等资源的原则......</p>
+        <button class="protocol-more">more</button>
+        <h3 class="protocol-title">新世界志愿者权利</h3>
+        <p class="protocol-text">新世界志愿者享受新世界内部所有资源共享的权利，并<br> 且享受所在四新世界活动的优先参与资格</p>
+        <button class="protocol-more">more</button>
+        <h3 class="protocol-title">更多条款</h3>
+        <button class="protocol-more">more</button>
+      </section>
+      <section class="links">
+        <div class="link" id="name">
+          <label for="linkname" class="link-label">姓名：</label>
+          <input type="text" name="name" id="linkname" class="link-input">
         </div>
-        <div class="links" id="age">
-          <label for="linkage">年龄：</label>
-          <input type="text" name="age" id="linkage">
+        <div class="link" id="age">
+          <label for="linkage" class="link-label">年龄：</label>
+          <input type="text" name="age" id="linkage" class="link-input">
         </div>
-        <div class="links" id="tel">
-          <label for="linktel">联系方式：</label>
-          <input type="text" name="tel" id="linktel">
+        <div class="link" id="tel">
+          <label for="linktel" class="link-label">联系方式：</label>
+          <input type="text" name="tel" id="linktel" class="link-input">
         </div>
-        <div class="links">
-          <label for="linkaddress">联系地址：</label>
-          <input type="text" name="address" id="linkaddress">
+        <div class="link">
+          <label for="linkaddress" class="link-label">联系地址：</label>
+          <input type="text" name="address" id="linkaddress" class="link-input">
         </div>
-        <div id="dreamlife">
-          <label for="linkdreamlife">请简单描述您梦想的生活：</label>
-          <textarea name=”dreamlife id="linkdreamlife"></textarea>
+        <div class="dreamlife">
+          <label for="linkdreamlife" class="link-label">请简单描述您梦想的生活：</label>
+          <textarea name=”dreamlife class="link-textarea" id="linkdreamlife"></textarea>
         </div>
-        <input type="submit" value="提交申请">
-      </form>
+        <input type="submit" value="提交申请" class="link-submit">
+      </section>
     </div>
   </div>
-  <div id="connect">
-    <h3>联系我们</h3>
-    <p>为了更好的获取我们最新的产品咨询，您可以留下您的电子邮箱快速订阅我们的产品咨询<br>也可以通过以下任何方式关注我们的动态</p>
-    <form action="">
-      <input type="mail" placeholder="someone@email.com"><input type="submit">
-    </form>
-    <ul>
-      <li><a href="#"><img src="images/tecent.png" alt=""></a></li>
-      <li><a href="#"><img src="images/weibo.png" alt=""></a></li>
-      <li><a href="#"><img src="images/feiniao.png" alt=""></a></li>
-      <li><a href="#"><img src="images/network.png" alt=""></a></li>
+  <div class="connect">
+    <h3 class="connect-us">联系我们</h3>
+    <p class="connect-p">为了更好的获取我们最新的产品咨询，您可以留下您的电子邮箱快速订阅我们的产品咨询<br>也可以通过以下任何方式关注我们的动态</p>
+    <div class="connect-form">
+      <input type="mail" placeholder="someone@email.com" class="connect-input">
+      <input type="submit" class="connect-submit">
+    </div>
+    <ul class="connect-list">
+      <li><a href="#" class="connect-link"><img src="images/tecent.png" alt=""></a></li>
+      <li><a href="#" class="connect-link"><img src="images/weibo.png" alt=""></a></li>
+      <li><a href="#" class="connect-link"><img src="images/feiniao.png" alt=""></a></li>
+      <li><a href="#" class="connect-link"><img src="images/network.png" alt=""></a></li>
     </ul>
   </div>
-  <footer>
+  <footer class="footer">
     <p class="new2016">@2016新世界</p>
-    <a href="#">Back to top</a>
+    <a href="#" class="back">Back to top</a>
   </footer>
 </body>
 </html>
